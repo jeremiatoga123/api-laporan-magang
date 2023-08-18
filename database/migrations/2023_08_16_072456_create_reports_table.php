@@ -9,15 +9,15 @@ class CreateReportsTable extends Migration
     public function up()
     {
         Schema::create('reports', function (Blueprint $table) {
-            $table->id('report_id');
-            $table->foreignId('student_id');
+            $table->increments('report_id');
+            $table->unsignedInteger('student_id');
             $table->time('start_time');
             $table->time('end_time');
             $table->string('internship_activity');
             $table->string('work_steps');
             $table->string('report_results');
             $table->date('date');
-            $table->enum('status', ['Approved', 'Revision'])->default('Revision');
+            $table->enum('status', ['Approved', 'Revision'])->notNull();
             $table->timestamps();
 
             $table->foreign('student_id')->references('student_id')->on('students')->onDelete('cascade');

@@ -9,8 +9,8 @@ class CreateFinalAssessmentsTable extends Migration
     public function up()
     {
         Schema::create('final_assessments', function (Blueprint $table) {
-            $table->id('assessment_id');
-            $table->unsignedBigInteger('student_id');
+            $table->increments('assessment_id');
+            $table->unsignedInteger('student_id');
             $table->string('assessment_parameter');
             $table->enum('assessment_criteria', ['excellent', 'good', 'satisfactory', 'poor']);
             $table->timestamps();

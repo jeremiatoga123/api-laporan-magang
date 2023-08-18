@@ -9,9 +9,9 @@ class CreateReportReviewsTable extends Migration
     public function up()
     {
         Schema::create('report_reviews', function (Blueprint $table) {
-            $table->id('review_id');
-            $table->foreignId('report_id');
-            $table->foreignId('mentor_id');
+            $table->increments('review_id');
+            $table->unsignedInteger('report_id');
+            $table->unsignedInteger('mentor_id');
             $table->string('comments');
             $table->timestamps();
 
